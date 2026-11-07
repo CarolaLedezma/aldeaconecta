@@ -1,0 +1,10 @@
+# Archivos del sistema (Linux/Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+
+# Archivos generados por Live Server o logs
+*.log

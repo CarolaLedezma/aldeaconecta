@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-11-06",
+  "aldea": "Los Guaritos",
+  "horarios": [
+    {
+      "id": "horario-1er-semestre",
+      "titulo": "Horario 1er Semestre - Informática",
+      "imagenUrl": "",
+      "notas": "Turno diurno"
+    }
+  ],
+  "profesores": [
+    {
+      "id": "prof-001",
+      "nombre": "Por definir",
+      "materia": "Programación",
+      "contacto": "Vía coordinación"
+    }
+  ],
+  "reglamentos": [
+    {
+      "id": "reg-001",
+      "titulo": "Reglamento de Evaluación",
+      "url": "#"
+    }
+  ],
+  "fechasClave": [
+    {
+      "id": "fecha-001",
+      "evento": "Inicio de clases",
+      "fecha": "2026-11-10"
+    }
+  ],
+  "croquis": {
+    "descripcion": "Mapa de la sede",
+    "imagenUrl": ""
+  }
+}

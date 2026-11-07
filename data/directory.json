@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-11-06",
+  "categorias": [
+    {
+      "id": "academico",
+      "label": "Apoyo Académico",
+      "perfiles": [
+        {
+          "id": "calc-diferencial",
+          "nombre": "Cálculo Diferencial",
+          "proveedorAlias": "Estudiante de 3er semestre",
+          "contacto": "vía buzón interno",
+          "disponibilidad": "Lunes y miércoles 4-6pm",
+          "consent": true,
+          "verified": false
+        }
+      ]
+    }
+  ]
+}

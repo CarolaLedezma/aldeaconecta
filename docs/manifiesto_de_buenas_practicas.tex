@@ -1,0 +1,95 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[spanish]{babel}
+
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{emoji} 
+
+\definecolor{primary}{RGB}{30, 58, 138}
+\definecolor{secondary}{RGB}{71, 85, 105}
+\definecolor{accent}{RGB}{217, 119, 6}
+\definecolor{codebg}{RGB}{241, 245, 249}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=primary,
+	urlcolor=primary
+}
+
+\setlist[itemize]{leftmargin=*, topsep=3pt, itemsep=3pt}
+
+\pagestyle{plain}
+
+\begin{document}
+	
+	\begin{center}
+		{\Huge \bfseries \color{primary}  Manifiesto de Buenas Prácticas de Desarrollo
+	\end{center}
+	\vspace{4mm}
+	
+	\section*{\color{primary} 1. Arquitectura y Código (POO + SRP)}
+	\textit{\color{secondary} El código debe ser fácil de leer, mantener y escalar.}
+	
+	\begin{itemize}
+		\item \textbf{Principio de Responsabilidad Única (SRP):} Cada archivo, clase o función debe hacer \textbf{una sola cosa}. Si para describir qué hace usas la palabra "y" (ej. "valida \textit{y} guarda"), debes dividirlo en dos.
+		\begin{itemize}
+			\item \textit{Ejemplo:} Separar la lógica de datos (\texttt{pubmed.py}) de la lógica de redes (\texttt{network.py}). O separar componentes visuales (\texttt{components\_kpi.py}).
+		\end{itemize}
+		\item \textbf{Patrón Repository (Encapsulamiento):} Ninguna vista (frontend) o endpoint (API) debe saber escribir SQL. Solo las clases dedicadas a la base de datos (ej. \texttt{DuckDBRepository}) hablan con el motor de la BD.
+		\item \textbf{Cero Números Mágicos:} Los tiempos de espera, límites de caracteres o configuraciones deben ser constantes con nombres claros (ej. \texttt{TIMEOUT\_METRICS\_S = 10.0} en lugar de un \texttt{10} suelto).
+		\item \textbf{Higiene de Entorno:} Si haces refactorizaciones profundas, limpia la caché (\texttt{\_\_pycache\_\_}) y reinicia servidores. Un error de importación suele ser código viejo en memoria, no un error real.
+	\end{itemize}
+	
+	\section*{\color{primary} 2. Gobernanza de Datos y Seguridad}
+	\textit{\color{secondary} La seguridad no es un plus, es el punto de partida.}
+	
+	\begin{itemize}
+		\item \textbf{Seguridad por Defecto (RBAC):} Todo endpoint nuevo debe estar protegido con validación de roles. Si no está explícitamente permitido, está denegado (Error 401/403).
+		\item \textbf{Trazabilidad Total (Auditoría):} Cada acción del usuario (login, descarga, búsqueda) debe quedar registrada en un log. \textit{Regla de oro:} Nunca guardes el archivo pesado en la base de datos de auditoría; guarda solo el evento (quién, qué archivo, cuándo).
+		\item \textbf{Separación de Identificadores:} Los identificadores canónicos (ej. un slug \texttt{chagas}) deben ser inmutables y en minúsculas. Las variables de búsqueda para APIs externas (ej. \texttt{Chagas}) se tratan por separado.
+	\end{itemize}
+	
+	\section*{\color{primary} 3. Ciencia Abierta y Principios FAIR}
+	\textit{\color{secondary} Los datos deben servir para generar conocimiento, no solo para almacenarse.}
+	
+	\begin{itemize}
+		\item \textbf{Transparencia en las Respuestas (F2 + R1.2):} Cada dato que entregue el sistema debe incluir metadatos explícitos: \texttt{source} (origen), \texttt{cache\_hit} (si es de memoria o red) y \texttt{timestamp} (cuándo se consultó).
+		\item \textbf{Idempotencia:} Ejecutar un proceso de carga dos veces no debe duplicar datos. Se logra con \textit{Upserts} (Insert or Replace) y llaves primarias bien definidas.
+		\item \textbf{Honestidad Semántica:} No uses términos grandilocuentes para vender humo (ej. no llames "biomarcador" a algo que no está clínicamente validado). Usa términos precisos ("gen relacionado") para que el código y la interfaz sean fieles a la realidad.
+	\end{itemize}
+	
+	\section*{\color{primary} 4. Robustez y Manejo de Errores (Fail-Safe)}
+	\textit{\color{secondary} El sistema debe resistir fallos, no explotar.}
+	
+	\begin{itemize}
+		\item \textbf{Degradación Elegante:} Si un servicio externo (NCBI, EBI) falla, el sistema debe devolver una respuesta controlada y registrar el error en los logs, en lugar de lanzar un error 500 y caerse.
+		\item \textbf{Tolerancia a Fallos de Tablas:} Si se consulta una tabla que aún no ha sido creada por el pipeline, el sistema debe devolver un valor por defecto (ej. 0) en lugar de un \textit{Crash}.
+		\item \textbf{Aislamiento de Errores en UI:} En el frontend, si falta una imagen o falla un gráfico, se debe mostrar un mensaje amigable (\texttt{st.info}, \texttt{st.warning}) en lugar de romper la interfaz.
+	\end{itemize}
+	
+	\section*{\color{primary} 5. Metodología de Trabajo (Control de Versiones)}
+	\textit{\color{secondary} Git es tu red de seguridad.}
+	
+	\begin{itemize}
+		\item \textbf{Punto de Restauración:} Antes de hacer un cambio crítico (refactor masivo, cambio de estilos globales), haz un commit a Git.
+		\item \textbf{Mensajes de Commit Semánticos:} Documenta el "por qué" y el "qué". Usa prefijos: \texttt{feat:}, \texttt{fix:}, \texttt{refactor:}, \texttt{docs:} y explica el impacto (ej. \texttt{fix(frontend): migrar PyVis a st.iframe}).
+		\item \textbf{No Romper lo que Funciona:} Los cambios de terminología o refactorizaciones deben hacerse de forma transversal (buscando y reemplazando en todo el proyecto con \texttt{grep -rn "palabra\_vieja"}), asegurando que no queden variables huérfanas.
+	\end{itemize}
+	
+	\vspace{2mm}
+	\hrule
+	\vspace{2mm}
+	
+	\begin{tcolorbox}[colback=codebg, colframe=accent, arc=2mm, title={\textbf{\emoji{bulb} Bonus Track: Higiene en LaTeX (se tratara de montar con LaTeX)}}]
+		\begin{itemize}
+			\item \textbf{\texttt{.gitignore} Inteligente:} Nunca subas archivos generados por el compilador (\texttt{.aux}, \texttt{.log}, \texttt{.out}, \texttt{.toc}, \texttt{.synctex.gz}) a Git. Mantén el repositorio limpio.
+			\item \textbf{Organización de Carpetas:} Separa el código fuente (\texttt{.py}, \texttt{.R}) de la documentación (\texttt{.tex}, \texttt{.bib}, \texttt{imagenes/}).
+		\end{itemize}
+	\end{tcolorbox}
+	
+\end{document}

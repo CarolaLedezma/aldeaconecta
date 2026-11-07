@@ -1,0 +1,186 @@
+\documentclass[12pt, letterpaper]{article}
+
+% ==========================================
+% PAQUETES Y CONFIGURACIÓN (Normas APA)
+% ==========================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
+\usepackage{setspace}
+\doublespacing % Interlineado doble según APA
+\usepackage{times} % Fuente Times New Roman
+\usepackage{indentfirst} % Indentar el primer párrafo de cada sección
+\setlength{\parindent}{1.27cm} % Sangría APA de 5 espacios
+\usepackage{hyperref} % Para enlaces y URLs
+\usepackage{url}
+
+% Formato de títulos de sección según APA aproximado
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Configuración de párrafos y citas
+\usepackage{csquotes}
+
+% ==========================================
+% INICIO DEL DOCUMENTO
+% ==========================================
+\begin{document}
+
+% --- PORTADA ---
+\begin{titlepage}
+	\singlespacing 
+	\centering
+	\vspace*{0.5cm}
+	
+	% Encabezado institucional (Mayúsculas según protocolo)
+	{\bfseries\large REPÚBLICA BOLIVARIANA DE VENEZUELA}\\[0.2cm]
+	{\bfseries\large MINISTERIO DEL PODER POPULAR PARA LA EDUCACIÓN UNIVERSITARIA}\\[0.2cm]
+	{\bfseries\large UNIVERSIDAD BOLIVARIANA DE VENEZUELA}\\[0.2cm]
+	{\bfseries\large ALDEA UNIVERSITARIA “LOS GUARITOS”}\\[0.2cm]
+	{\bfseries\large LICEO JUVANELL JOSÉ CAMPOS ARCIA}\\[0.2cm]
+	{\bfseries\large MATURÍN - ESTADO MONAGAS}\\[1.5cm]
+	
+	% Título del proyecto (Formato Tipo Título, sin mayúsculas sostenidas)
+	{\bfseries\Large Diseño e Implementación de un Portal Web de Guía Práctica y Directorio de Saberes para la Aldea Universitaria “Los Guaritos”}\\[1.5cm]
+	
+	% Participantes (Formato Tipo Oración)
+	{\large \textbf{Participantes:}}\\[0.3cm]
+	{\large Álvarez López, Jesús Adolfo \quad C.I: 18.809.468}\\[0.1cm]
+	{\large Ledezma Carrizález, Aurora Carolina \quad C.I: 20.506.898}\\[0.1cm]
+	{\large Ruiz Valderrey, Wolfang Isaac \quad C.I: 32.753.547}\\[1cm]
+	
+	% Tutor
+	{\large \textbf{Tutor:}}\\[0.3cm]
+	{\large Prof. Héctor Lares}\\[1.5cm]
+	
+	% Datos académicos
+	{\large \textbf{Trayecto:} II}\\
+	{\large \textbf{Línea de Investigación:} Desarrollo de Sistemas de Información Web}\\[1.5cm]
+	
+	\vfill
+	
+	% Lugar y fecha
+	{\large Maturín, Noviembre de 2026}
+	
+	\doublespacing % Restauramos el doble espacio para el resto del documento
+	\end{titlepage}
+
+	% --- ÍNDICE ---
+	\tableofcontents
+	
+	% --- CAPÍTULO I ---
+	\newpage
+	\section*{CAPÍTULO I: DIAGNÓSTICO SITUACIONAL PARTICIPATIVO}
+	\addcontentsline{toc}{section}{CAPÍTULO I: DIAGNÓSTICO SITUACIONAL PARTICIPATIVO}
+	
+	\subsection*{1.1 Antecedentes de la Comunidad u Organización}
+	\addcontentsline{toc}{subsection}{1.1 Antecedentes de la Comunidad u Organización}
+	La Aldea Universitaria “Los Guaritos” funciona en las instalaciones del Liceo Bolivariano “Juvanell José Campos Arcia”, ubicado en el sector Los Guaritos, parroquia Altos de Los Godos, municipio Maturín del estado Monagas. Esta aldea forma parte de la Misión Sucre y alberga a una población estudiantil aproximada de 120 estudiantes distribuidos en diversos Programas Nacionales de Formación (PNF), tales como Informática, Turismo, Educación, Construcción Civil, Electricidad, entre otros. La modalidad de estudio es de fin de semana (sábados y domingos), facilitando el acceso a estudiantes que laboran durante la semana. La aldea cuenta con el acompañamiento de 20 docentes facilitadores y 1 coordinadora académica.
+
+	Históricamente, la aldea ha operado con procesos de gestión académica y administrativa que dependen en gran medida de registros físicos y comunicaciones informales (mensajería instantánea y carteleras). La institución no cuenta con un sistema centralizado que integre la información de horarios, docentes, reglamentos y fechas clave, lo que genera duplicidad de esfuerzos y dificultades en la trazabilidad de la información para estudiantes y coordinadores.
+	
+	\subsection*{1.2 Aspectos Socio-productivos, Geográficos, Demográficos, Culturales, Educativos, de Salud y Ambientales}
+	\addcontentsline{toc}{subsection}{1.2 Aspectos Socio-productivos, Geográficos, Demográficos, Culturales, Educativos, de Salud y Ambientales}
+	
+	\textbf{1.2.1 Aspectos socio-productivos:} La comunidad estudiantil de la aldea está conformada por jóvenes y adultos que en su mayoría combinan sus estudios con actividades laborales informales o formales durante la semana. La aldea no cuenta con una infraestructura tecnológica propia; depende de los recursos del liceo sede, lo que limita el acceso a equipos de computación y conectividad estable.
+	
+    \textbf{1.2.2 Aspectos Geográficos y Demográficos} La aldea se ubica en el sector Los Guaritos, parroquia Altos de Los Godos, municipio Maturín. La población directa beneficiaria es de 120 estudiantes pertenecientes a diversos Programas Nacionales de Formación (PNF) como Informática, Turismo, Educación, Construcción Civil, Electricidad, entre otros. Además, cuenta con el acompañamiento de 20 docentes facilitadores y 1 coordinadora académica. La población indirecta incluye a los familiares de los estudiantes y al personal administrativo del liceo sede.
+	
+	\textbf{1.2.3 Aspectos culturales y educativos:} El PNF en Informática se imparte en horarios concentrados de fin de semana para facilitar el acceso a estudiantes que trabajan. La aldea carece de un repositorio digital de normativas, calendarios académicos y guías de estudio, lo que obliga a los estudiantes a depender de la memoria o de documentos impresos que se deterioran o se pierden.
+	
+	\textbf{1.2.4 Aspectos de salud y ambientales:} La infraestructura del liceo presenta limitaciones en cuanto a ventilación y espacios para el trabajo colaborativo. La conectividad a internet es intermitente, lo que hace necesario que cualquier solución tecnológica sea ligera, de bajo consumo de datos y con capacidad de funcionar parcialmente sin conexión (offline).
+	
+	\subsection*{1.3 Identificación y Jerarquización de las Necesidades}
+	\addcontentsline{toc}{subsection}{1.3 Identificación y Jerarquización de las Necesidades}
+	
+	A través de la observación directa y entrevistas no estructuradas con estudiantes y docentes de la aldea, se identificaron las siguientes necesidades prioritarias:
+	
+	\begin{enumerate}
+		\item \textbf{Ausencia de un directorio centralizado de saberes y contactos:} Los estudiantes no tienen un medio unificado para ubicar a docentes, coordinadores o compañeros con conocimientos específicos (tutorías, asesorías).
+		\item \textbf{Desinformación sobre horarios y fechas clave:} Los cambios de horario, fechas de entrega de proyectos y evaluaciones se comunican por canales informales, generando confusión y ausencias.
+		\item \textbf{Acceso limitado a reglamentos y normativas:} Los documentos rectores (normativa de proyecto, reglamento estudiantil) no están disponibles en formato digital accesible.
+		\item \textbf{Falta de identidad visual institucional en los materiales:} Los pocos documentos digitales existentes carecen de los logos institucionales (Misión Sucre, Ministerio de Educación Universitaria), lo que resta formalidad y sentido de pertenencia.
+	\end{enumerate}
+	
+	\subsection*{1.4 Contextualización de la realidad a abordar}
+	\addcontentsline{toc}{subsection}{1.4 Contextualización de la realidad a abordar}
+	
+	La aldea “Los Guaritos” enfrenta una brecha digital interna: aunque el PNF es en Informática, los procesos de comunicación y gestión de la información no se apoyan en herramientas digitales propias. Esto genera una paradoja: se enseña tecnología, pero no se aplica tecnología para resolver las necesidades inmediatas de la aldea.
+	
+	El presente proyecto tiene como objetivo primordial facilitar a la comunidad los recursos necesarios para la elaboración de un portal web que centralice la información académica y de contacto. Dicho estudio se realiza con el propósito de generar alternativas que hagan más eficiente la comunicación, asegurándole a la comunidad estudiantil una mejor calidad de vida a través del acceso oportuno a la información y del desarrollo integral del individuo y la sociedad.
+	
+	El presente proyecto no solo responde a una necesidad local de la Aldea Universitaria “Los Guaritos”, sino que se inscribe y tributa directamente a los grandes objetivos históricos de la Nación, específicamente a la \textbf{Sexta Transformación (6T)} del Plan de la Patria de las 7T, referida al \textbf{Ecosocialismo, Ciencia y Tecnología}. En este marco, el desarrollo de un portal web con arquitectura de datos JSON se alinea con el objetivo de \textit{“Fortalecer el equipamiento tecnológico y conectividad en el sistema educativo”} (6.1.2.1) y con la necesidad de \textit{“Desarrollar las tecnologías de información y comunicación”} (6.2.4) aplicadas a la resolución de problemas concretos. Al implementar una solución tecnológica de bajo costo y código abierto (HTML, CSS, JavaScript), se promueve la \textbf{soberanía tecnológica} y la independencia de plataformas extranjeras costosas, además de fomentar una \textbf{cultura del trabajo} colaborativo y la \textbf{descolonización del pensamiento} al utilizar herramientas libres que empoderan a los estudiantes del PNF en Informática. Asimismo, al digitalizar la información académica (horarios, directorio de saberes, reglamentos), el proyecto contribuye al objetivo de \textit{“Garantizar el acceso universal y soporte para el desarrollo de las y los estudiantes”} (4.1.4.3), facilitando la prosecución educativa y la gestión eficiente del conocimiento en un contexto de 120 estudiantes de fin de semana, demostrando que la innovación tecnológica desde las bases es una herramienta fundamental para la construcción del Estado Popular y la máxima eficiencia en la gestión pública.
+	
+	\subsection*{1.4.1 Vinculación del proyecto con el Plan Nacional de Desarrollo Económico y Social de la Nación}
+	\addcontentsline{toc}{subsection}{1.4.1 Vinculación del proyecto con el Plan Nacional de Desarrollo Económico y Social de la Nación}
+	
+	Conforme a lo establecido en la Ley Constitucional del Plan de la Patria, el proyecto se enmarca en los siguientes objetivos:
+	
+	\begin{itemize}
+		\item \textbf{Objetivo Histórico 4 (4T Social):} Garantizar el acceso universal y soporte para el desarrollo de las y los estudiantes (4.1.4.3). El portal web facilita el acceso equitativo a la información académica, reduciendo la deserción por desinformación.
+		\item \textbf{Objetivo Histórico 6 (6T Ciencia y Tecnología):} Fortalecer el equipamiento tecnológico y conectividad en el sistema educativo (6.1.2.1) y desarrollar las tecnologías de información y comunicación (6.2.4). La solución es de bajo costo, usa tecnologías libres y fomenta la soberanía tecnológica.
+		\item \textbf{Objetivo Histórico 5 (5T Política):} Promover la modernización del Estado y el Gobierno Electrónico (5.4.3.1). El portal digitaliza procesos administrativos de la aldea, contribuyendo a la eficiencia y transparencia en la gestión.
+	\end{itemize}
+	
+	\subsection*{1.4.2 Beneficiarios del proyecto}
+	\addcontentsline{toc}{subsection}{1.4.2 Beneficiarios del proyecto}
+	
+	\textbf{Beneficiarios Directos:} 120 estudiantes de los diferentes PNF (Informática, Turismo, Educación, Construcción Civil, Electricidad, entre otros), 20 docentes facilitadores y 1 coordinadora académica de la Aldea “Los Guaritos”.
+	
+	\textbf{Beneficiarios Indirectos:} Familiares de los estudiantes y personal administrativo del Liceo “Juvanell José Campos Arcia”.
+	
+	\textbf{Descripción del beneficio:} Acceso inmediato a horarios, contactos de docentes, reglamentos y fechas clave desde cualquier dispositivo con conexión a internet. Reducción de la incertidumbre y mejora en la planificación académica para todos los PNF de la aldea, fomentando la integración y el sentido de pertenencia institucional.
+	
+	\subsection*{1.5 Objetivos}
+	\addcontentsline{toc}{subsection}{1.5 Objetivos}
+	
+	\textbf{1.5.1 Objetivo General:}\\
+		Desarrollar un portal web de Guía Práctica y Directorio de Saberes para la Aldea Universitaria “Los Guaritos” (Liceo Juvanell José Campos Arcia, Maturín), que centralice la información académica y de contacto de la comunidad, mejorando la comunicación y el acceso a la información de los 120 estudiantes de los diferentes PNF de fin de semana.
+
+	\textbf{1.5.2 Objetivos Específicos:}
+	\begin{itemize}
+		\item Diagnosticar los procesos actuales de gestión y comunicación de la información en la aldea.
+		\item Diseñar la arquitectura de datos (archivos JSON) y la interfaz de usuario (HTML/CSS) del portal web.
+		\item Implementar el portal web con un renderizador dinámico en JavaScript que consuma los datos JSON.
+		\item Validar la usabilidad y pertinencia del portal con una muestra representativa de estudiantes y docentes de la aldea.
+		\item \textbf{Diseñar e implementar un plan de capacitación} dirigido a los facilitadores y estudiantes (participantes) sobre el uso, administración y actualización del portal web, garantizando su sostenibilidad en el tiempo.
+	\end{itemize}
+	
+	\subsection*{1.6 Justificación}
+	\addcontentsline{toc}{subsection}{1.6 Justificación}
+	
+	La implementación de este portal web se justifica en tres dimensiones:
+	
+	\textbf{Social:} Facilita el acceso equitativo a la información académica para los 120 estudiantes, muchos de los cuales tienen limitaciones de tiempo para asistir a la aldea entre semana. Un portal accesible desde cualquier dispositivo móvil reduce la deserción por desinformación.
+	
+	\textbf{Tecnológica:} Aplica los conocimientos del PNF en Informática (desarrollo web, gestión de datos JSON, control de versiones con Git) en un producto tangible y replicable. La arquitectura elegida (HTML/CSS/JS estático con datos JSON) es coherente con las recomendaciones de sistemas ligeros para contextos de conectividad limitada.
+	
+	\textbf{Social:} Facilita el acceso equitativo a la información académica para los 120 estudiantes de los distintos PNF, muchos de los cuales tienen limitaciones de tiempo para asistir a la aldea entre semana. Un portal accesible desde cualquier dispositivo móvil reduce la deserción por desinformación y unifica la comunicación entre los diferentes programas.
+	
+	\textbf{Institucional:} Incorpora los lineamientos de la normativa UTD Francisco Tamayo (2017) sobre proyectos sociointegradores, y contribuye a la identidad visual de la aldea mediante el uso de los logos institucionales del Ministerio y Misión Sucre. Además, el portal puede ser actualizado por los propios estudiantes en futuros trayectos, garantizando su garantizando su sostenibilidad. Para ello, el proyecto contempla una fase de capacitación docente y estudiantil, que busca transferir los conocimientos técnicos necesarios para que la propia comunidad pueda actualizar los archivos JSON y mantener la información vigente sin depender de terceros, fomentando así la soberanía tecnológica y el trabajo colaborativo.
+	
+	Desde el punto de vista teórico, el proyecto se apoya en el concepto de \textbf{Sistemas de Información Estratégicos para Instituciones de Educación Superior}, que destaca la necesidad de contar con información válida, confiable y oportuna para la toma de decisiones académicas (Gallegos Macías et al., 2025). Asimismo, se alinea con experiencias nacionales donde estudiantes del PNF en Informática desarrollan soluciones tecnológicas para sus comunidades (Infocentro, 2025).
+	
+	% --- REFERENCIAS ---
+	\newpage
+	\section*{REFERENCIAS}
+	\addcontentsline{toc}{section}{REFERENCIAS}
+	
+	
+	\begin{flushleft} % Esto alinea a la izquierda (borde derecho irregular)
+	Gallegos Macías, M. R., Galarza López, J., \& Almuinas Rivero, J. L. (2025). Strategic Information System in Higher Education Institutions: Theoretical model for its design. \textit{Revista San Gregorio, 1}(62), 64–71. https://doi.org/10.36097/rsan.v1i62.3583
+	
+	Infocentro. (2025, 2 de septiembre). \textit{Estudiantes desarrollan red gratuita y de alta velocidad de fibra óptica a la comunidad}. https://www.infocentro.gob.ve/index.php/estudiantes-desarrollan-red-gratuita-y-de-alta-velocidad-de-fibra-optica-a-la-comunidad/
+	
+	Presidencia de la República Bolivariana de Venezuela. (2025). \textit{Plan de la Patria de las 7T: Las Grandes Transformaciones (2025-2031)}. https://mppp.gob.ve/plan-de-la-patria/
+	
+	Sutisnawati, Y., Maryati, M., \& Setiyadi, A. (2025). Pengembangan API Berbasis JSON pada Sistem Koperasi Berbasis Web. \textit{Journal of Economics, Management, Business, and Accounting (JEMBA), 5}(2). https://doi.org/10.34010/jemba.v5i2.17750
+	
+	Universidad Territorial Deltaica “Francisco Tamayo”. (2017). \textit{Normativa general para la elaboración, presentación y evaluación de los proyectos sociointegradores en los Programas Nacionales de Formación}. Departamento de Investigación-Área de Proyecto.
+	\end{flushleft}
+	
+\end{document}
